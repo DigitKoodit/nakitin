@@ -22,7 +22,7 @@ MainComponent = React.createClass({
       );
     }
     return this.data.events.map((event) => {
-      return <ListEvent key={event._id} event={event}/>
+      return <ListEvent key={event._id} name={event.name}/>
     });    
   },
   render(){

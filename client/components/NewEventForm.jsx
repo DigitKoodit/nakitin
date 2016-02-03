@@ -6,17 +6,46 @@ NewEventForm = React.createClass({
     }
   },
   getInitialState(){
-    return {Tasks: []}
+    return {Tasks: [], name: "", description: ""}
   },
   eventSubmit(){
+    if(this.state.name === "" || this.state.description === ""){
+      alert("Tapahtuman nimi tai kuvaus on tyhjä.");
+      return;
+    }
+    let Event = {
+      name: this.state.name,
+      description: this.state.description,
+      tasks: this.state.Tasks,
+      createdAt: new Date(),
+      id: this.data.EventSize
+    }
+    console.log(Event);
 
+    Events.insert(Event);
 
+  },
+  onChangeDescription(event){
+    event.preventDefault();
+    this.setState({description: event.target.value});
+  },
+  onChangeText(event){
+    event.preventDefault();
+    this.setState({name: event.target.value});
   },
   addEventTask(event){
     event.preventDefault();
     console.log("Adding new task");
     let taskName = ReactDOM.findDOMNode(this.refs.taskNameField).value.trim();
     let taskCount = ReactDOM.findDOMNode(this.refs.taskNumberCount).value.trim();
+    taskCount = parseInt(taskCount) || 0;
+    if(taskCount === 0){
+      alert("Tehtävän määrän täytyy olla suurempi kuin 0");
+      return;
+    }else if(taskName === ""){
+      alert("Tehtävällä täytyy olla nimi");
+      return;
+    }
     this.setState({Tasks: this.state.Tasks.concat(
       {
         task: taskName,
@@ -49,19 +78,19 @@ NewEventForm = React.createClass({
           <h1>Uusi tapahtuma</h1>
           <h2>Kuvaus</h2>
         <form className="descriptionForm">
-          <input type="text" ref="nameField" placeholder="Tapahtuman nimi"/>
-          <textarea rows="3" className="commentField" ref="descriptionField" type="text" placeholder="Tapahtuman kuvaus" />
+          <input className="eventNameField" onChange={this.onChangeText} type="text" ref="nameField" placeholder="Tapahtuman nimi"/>
+          <textarea rows="3" className="commentField"  onChange={this.onChangeDescription} ref="descriptionField" type="text" placeholder="Tapahtuman kuvaus" />
         </form>
           <h2>Tehtävät</h2>
           <ul>
             {this.renderEventTasks()}
           </ul>
-        <form className="taskFrom" onSubmit={this.addEventTask}>
+        <form className="taskForm" onSubmit={this.addEventTask}>
           <input className="taskName" type="text" ref="taskNameField" placeholder="Tehtävän nimi"/>
           <input className="personsCount" type="text" ref="taskNumberCount" placeholder="2"/>
           <input className="addTaskToEvent" type="submit" value="Lisää tehtävä" />
         </form>
-        <button className="addEventButton" onClick={this.eventSubmit()} >Lisää tapahtuma</button>
+        <button className="addEventButton" onClick={() => this.eventSubmit()} >Lisää tapahtuma</button>
       </div>
     );
   }
