@@ -24,6 +24,8 @@ NewEventForm = React.createClass({
 
     Events.insert(Event);
 
+    window.location.href = "/event/:"+this.data.EventSize;
+
   },
   onChangeDescription(event){
     event.preventDefault();

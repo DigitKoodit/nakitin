@@ -1,3 +1,50 @@
 .commentField{
   clear:both;
 }
+.eventsContainer{
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  color: #212121;
+  background-color: #ffeb3b;
+  font-family: "Julius Sans One", sans-serif;
+}
+
+.eventsContainer li{
+  display: inline-block;
+  width: 70%;
+  text-align: left;
+  list-style: none;
+  font-family: "Crimson Text", serif;
+  color: #212121;
+}
+
+.eventListCard{
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 2px;
+  background-color: white;
+  padding: 5px;
+  margin: 5px;
+}
+
+.eventListCard h2{
+  margin: 4px;
+}
+
+.eventListCard a{
+  text-decoration: none;
+}
+.eventsContainer a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.addEvent{
+  font-size: 3em;
+  text-decoration: none;
+}
+
+html{
+  background-color: #212121;
+}

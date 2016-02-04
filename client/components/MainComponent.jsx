@@ -22,7 +22,7 @@ MainComponent = React.createClass({
       );
     }
     return this.data.events.map((event) => {
-      return <ListEvent key={event._id} name={event.name}/>
+      return <ListEvent text={event.description} key={event.id} id={event.id} name={event.name}/>
     });    
   },
   render(){
@@ -32,7 +32,7 @@ MainComponent = React.createClass({
         <ul>
           {this.renderEvents()}
         </ul>
-        <a href="/new">Add an event.</a>
+        <a href="/new" className="addEvent">+</a>
       </div>
     );
   }
