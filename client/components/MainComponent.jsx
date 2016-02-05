@@ -1,11 +1,9 @@
 MainComponent = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData(){
-    console.log("Fetching events");
     let currentDate = new Date();
-    console.log("Fetching the mixing for this.");
     return{
-      events: Events.find({}).fetch()
+      events: Events.find({}, {sort: {createdAt:-1}}).fetch()
     }
   },
   renderEvents(){
@@ -22,7 +20,7 @@ MainComponent = React.createClass({
       );
     }
     return this.data.events.map((event) => {
-      return <ListEvent text={event.description} key={event.id} id={event.id} name={event.name}/>
+      return <ListEvent key={event.id} event={event}/>
     });    
   },
   render(){
@@ -32,7 +30,7 @@ MainComponent = React.createClass({
         <ul>
           {this.renderEvents()}
         </ul>
-        <a href="/new" className="addEvent">+</a>
+        <UiComponent/>
       </div>
     );
   }

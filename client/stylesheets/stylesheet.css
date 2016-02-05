@@ -3,10 +3,8 @@
 }
 .eventsContainer{
   text-align: center;
-  width: 70%;
-  margin: auto;
-  color: #212121;
-  background-color: #ffeb3b;
+  width: 100%;
+  padding-top: 2em;
   font-family: "Julius Sans One", sans-serif;
 }
 
@@ -22,29 +20,87 @@
 .eventListCard{
   margin-right: auto;
   margin-left: auto;
+  background-color: #2196F3;
   border-radius: 2px;
-  background-color: white;
   padding: 5px;
-  margin: 5px;
+  margin: 10px;
+  color: #212121;
+  font-family: "Crimson Text", serif;
+  -webkit-box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+  -moz-box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+  box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
 }
 
 .eventListCard h2{
-  margin: 4px;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 1.1em;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+.eventListCard h3{
+  margin: 2px;
+  font-size: 1em;
+}
+
+.eventListCard p{
+  margin: 0px;
+  font-size: 1em;
 }
 
 .eventListCard a{
   text-decoration: none;
+  color: white;
 }
 .eventsContainer a:hover{
-  color: white;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .addEvent{
-  font-size: 3em;
+  font-size: 2em;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  border: 0px;
+  display: inline-block;
+  color: white;
   text-decoration: none;
+  background-color: #1976D2;
+  -webkit-box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+  -moz-box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+  box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+}
+
+.uiBar{
+  position: fixed;
+  left: 10px;
+  top: 5px;
+  display: inline-block;
+}
+
+.searchField{
+  top: 5px;
+  padding: 0px;
+  display: inline-block;
+  vertical-align: center;
+  /*position: fixed;*/
+  margin: 0px;
+  margin-left: 3em;
+  border: 0px;
+  height: 1.2em;
+  font-size: 0,5em;
+  border-radius: 2px;
+  padding: 10px;
+  -webkit-box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+  -moz-box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+  box-shadow: 10px 10px 29px -6px rgba(0,0,0,0.43);
+}
+
+.addEvent:hover{
+  background-color: #2196F3;
 }
 
 html{
-  background-color: #212121;
+  margin: 0;
+  padding: 0;
+  background-color: #BBDEFB;
 }

@@ -15,6 +15,7 @@ NewEventForm = React.createClass({
     }
     let Event = {
       name: this.state.name,
+      organizer: this.state.organizer,
       description: this.state.description,
       tasks: this.state.Tasks,
       createdAt: new Date(),
@@ -51,7 +52,8 @@ NewEventForm = React.createClass({
     this.setState({Tasks: this.state.Tasks.concat(
       {
         task: taskName,
-        count: taskCount
+        count: taskCount,
+        filled: 0
       }
     )});
     // this.forceUpdate();
