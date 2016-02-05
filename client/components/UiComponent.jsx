@@ -3,7 +3,9 @@ UiComponent = React.createClass({
     event.preventDefault();
     let keyword = ReactDOM.findDOMNode(this.refs.searchInput).value.trim();
     let query = new RegExp(keyword, "i");
-    console.log(keyword);
+    
+    let results = Events.find({$or:[{"name": query}, {"organizer": query}] }).fetch();
+    console.log(results);
   },
   render(){
     return(
