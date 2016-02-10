@@ -8,10 +8,9 @@ ListEvent = React.createClass({
   },
   returnTasks(){
     let total = 0;
-    this.props.event.tasks.map((task) => {
-      total += task.count;
+    this.props.event.tasks.reduce((task, sum) => {
+      return sum + task.count;
     });
-    return total;
   },
   render(){
     return(
